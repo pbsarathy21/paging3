@@ -15,7 +15,7 @@ class MainViewModel @Inject constructor(
 
     fun getItemsFromAPI() = Pager(
         config = PagingConfig(
-            pageSize = 15,
+            pageSize = 1,
             enablePlaceholders = false
         ),
         pagingSourceFactory = { itemPagingSource }

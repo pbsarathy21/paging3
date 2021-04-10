@@ -25,7 +25,10 @@ class MainActivity : BaseActivity() {
         binding.itemRecyclerView.hasFixedSize()
         binding.itemRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.itemRecyclerView.adapter =
-            itemAdapter.withLoadStateFooter(footer = ItemLoadStateAdapter { itemAdapter.retry() })
+            itemAdapter.withLoadStateHeaderAndFooter(
+                header = ItemLoadStateAdapter { itemAdapter.retry() },
+                footer = ItemLoadStateAdapter { itemAdapter.retry() }
+            )
 
         lifecycleScope.launchWhenCreated {
             viewModel.getItemsFromAPI().collect {
